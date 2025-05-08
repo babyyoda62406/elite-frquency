@@ -30,6 +30,7 @@ const ProductImageGallery = ({ images }: { images: string[] }) => {
       <Image
         src={images[currentImageIndex] || "/placeholder.svg"}
         alt="Imagen del producto"
+        unoptimized
         fill
         className="object-cover transition-all"
       />
