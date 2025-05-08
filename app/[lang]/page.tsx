@@ -15,8 +15,8 @@ export default async function Home({ params }: { params: { lang: string } }) {
       <header className="sticky top-0 z-10 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center justify-between py-4">
           <div className="flex items-center gap-2">
-            <ShoppingBag className="h-6 w-6" />
-            <span className="text-xl font-bold">TuTienda</span>
+            {/* <ShoppingBag className="h-6 w-6" /> */}
+            <span className="text-xl font-bold">Elite Frequency</span>
           </div>
           <nav className="hidden md:flex items-center gap-6">
             <Link href={`/${params.lang}`} className="text-sm font-medium">
@@ -31,10 +31,10 @@ export default async function Home({ params }: { params: { lang: string } }) {
           </nav>
           <div className="flex items-center gap-4">
             <LanguageSwitcher currentLang={params.lang} />
-            <Button variant="outline" size="sm">
+            {/* <Button variant="outline" size="sm">
               <ShoppingBag className="mr-2 h-4 w-4" />
               {dict.navigation.catalog}
-            </Button>
+            </Button> */}
           </div>
         </div>
       </header>

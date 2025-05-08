@@ -17,6 +17,11 @@ export default async function RootLayout({
 
   return (
     <html lang={params.lang}>
+      <head>
+        <meta charSet="UTF-8" />
+        {/* favico */}
+        <link rel="icon" href="2025-05-08_06-40.png" />
+      </head>
       <body>
         <div className="flex min-h-screen flex-col">{children}</div>
       </body>

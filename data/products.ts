@@ -119,7 +119,7 @@ export const products: Product[] = [
         "additionalInfo": "Mouvement automatique calibre 4130. Chronographe avec réserve de marche de 72 heures. Boîtier de 40 mm. Verre saphir. Étanche jusqu'à 100 mètres."
       }
     }
-  }, 
+  },
   {
     "id": 7,
     "name": "Rolex GMT-Master II",
@@ -171,7 +171,7 @@ export const products: Product[] = [
         "description": "Montre Breitling Navitimer avec cadran noir, chronographe et bracelet métallique. Une montre iconique conçue pour les pilotes, avec une fonction de calcul de vol utilisant sa règle à calcul circulaire. Mouvement automatique calibre B01. Boîtier de 43 mm. Verre saphir. Étanche jusqu'à 30 mètres."
       }
     }
-  }    
+  }
 ]
 
 // Función para obtener productos localizados según el idioma
@@ -198,8 +198,10 @@ export function createWhatsAppLink(product: Product, lang: string): string {
   const dict = getDictionaryClient(lang)
 
   const message = encodeURIComponent(
-    `${dict.whatsapp.productInterest}: ${product.name} (ID: ${product.id}) por $${product.price}. ${product.additionalInfo ? product.additionalInfo + ". " : ""
-    }${dict.whatsapp.availability}`,
+    `${dict.whatsapp.productInterest}: ${product.name} ,
+    }${dict.whatsapp.availability}
+    \n\`(ID: ${product.id})\`
+    `,
   )
 
   return `https://wa.me/${whatsappNumber}?text=${message}`
