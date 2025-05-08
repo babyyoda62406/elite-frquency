@@ -11,12 +11,13 @@ export default async function RootLayout({
   params,
 }: {
   children: React.ReactNode
-  params: { lang: string }
+  params: Promise<{ lang: string }>
 }) {
-  const dict = await getDictionary(params.lang)
+  const {lang }= await params
+  const dict = await getDictionary(lang)
 
   return (
-    <html lang={params.lang}>
+    <html lang={lang}>
       <head>
         <meta charSet="UTF-8" />
         {/* favico */}

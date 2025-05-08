@@ -7,7 +7,8 @@ import { whatsappNumber } from "@/data/products"
 import { getDictionary } from "@/dictionaries"
 import LanguageSwitcher from "@/components/language-switcher"
 
-export default async function Home({ params }: { params: { lang: string } }) {
+export default async function Home({ params:bag }: { params: Promise<{ lang: string }> }) {
+  const params  = await bag
   const dict = await getDictionary(params.lang)
 
   return (
