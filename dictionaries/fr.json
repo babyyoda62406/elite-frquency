@@ -1,0 +1,36 @@
+{
+  "navigation": {
+    "home": "Accueil",
+    "products": "Produits",
+    "contact": "Contact",
+    "catalog": "Catalogue"
+  },
+  "hero": {
+    "title": "Découvrez Nos Produits",
+    "subtitle": "Explorez notre sélection de produits de haute qualité. Achetez facilement via WhatsApp.",
+    "cta": "Voir les Produits"
+  },
+  "products": {
+    "title": "Nos Produits",
+    "subtitle": "Explorez notre collection et trouvez ce dont vous avez besoin.",
+    "buyButton": "Acheter",
+    "stock": "Stock",
+    "units": "unités",
+    "outOfStock": "Épuisé"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Vous avez des questions? Contactez-nous directement.",
+    "button": "Contacter par WhatsApp",
+    "whatsappMessage": "Bonjour, je suis intéressé par vos produits"
+  },
+  "footer": {
+    "copyright": "© 2020 - 2025 Elite Frequecy. Tous droits réservés.",
+    "terms": "Conditions",
+    "privacy": "Confidentialité"
+  },
+  "whatsapp": {
+    "productInterest": "Bonjour, je suis intéressé par le produit",
+    "availability": "Est-il disponible?"
+  }
+}
