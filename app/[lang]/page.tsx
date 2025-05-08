@@ -7,8 +7,14 @@ import { whatsappNumber } from "@/data/products"
 import { getDictionary } from "@/dictionaries"
 import LanguageSwitcher from "@/components/language-switcher"
 
-export default async function Home({ params }: { params: { lang: string } }) {
-  const dict = await getDictionary(params.lang)
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ lang: string }>
+}) {
+  // Resolvemos el promise params
+  const { lang } = await params
+  const dict = await getDictionary(lang)
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -19,18 +25,18 @@ export default async function Home({ params }: { params: { lang: string } }) {
             <span className="text-xl font-bold">Elite Frequency</span>
           </div>
           <nav className="hidden md:flex items-center gap-6">
-            <Link href={`/${params.lang}`} className="text-sm font-medium">
+            <Link href={`/${lang}`} className="text-sm font-medium">
               {dict.navigation.home}
             </Link>
-            <Link href={`/${params.lang}#productos`} className="text-sm font-medium">
+            <Link href={`/${lang}#productos`} className="text-sm font-medium">
               {dict.navigation.products}
             </Link>
-            <Link href={`/${params.lang}#contacto`} className="text-sm font-medium">
+            <Link href={`/${lang}#contacto`} className="text-sm font-medium">
               {dict.navigation.contact}
             </Link>
           </nav>
           <div className="flex items-center gap-4">
-            <LanguageSwitcher currentLang={params.lang} />
+            <LanguageSwitcher currentLang={lang} />
             {/* <Button variant="outline" size="sm">
               <ShoppingBag className="mr-2 h-4 w-4" />
               {dict.navigation.catalog}
@@ -46,7 +52,9 @@ export default async function Home({ params }: { params: { lang: string } }) {
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
                   {dict.hero.title}
                 </h1>
-                <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">{dict.hero.subtitle}</p>
+                <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
+                  {dict.hero.subtitle}
+                </p>
               </div>
               <div className="space-x-4">
                 <Button asChild>
@@ -61,12 +69,16 @@ export default async function Home({ params }: { params: { lang: string } }) {
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">{dict.products.title}</h2>
-                <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">{dict.products.subtitle}</p>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                  {dict.products.title}
+                </h2>
+                <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
+                  {dict.products.subtitle}
+                </p>
               </div>
             </div>
             <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-w-5xl pt-10">
-              <ProductGrid lang={params.lang} />
+              <ProductGrid lang={lang} />
             </div>
           </div>
         </section>
@@ -75,13 +87,19 @@ export default async function Home({ params }: { params: { lang: string } }) {
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">{dict.contact.title}</h2>
-                <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">{dict.contact.subtitle}</p>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                  {dict.contact.title}
+                </h2>
+                <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
+                  {dict.contact.subtitle}
+                </p>
               </div>
               <div className="mx-auto w-full max-w-sm space-y-2">
                 <Button className="w-full" asChild>
                   <a
-                    href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(dict.contact.whatsappMessage)}`}
+                    href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+                      dict.contact.whatsappMessage
+                    )}`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
