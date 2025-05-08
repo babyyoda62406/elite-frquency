@@ -1,23 +1,18 @@
-import type React from "react"
-import { locales } from "@/middleware"
-import { getDictionary } from "@/dictionaries"
-
-import type { ReactNode } from "react"
+import type { ReactNode } from "react";
+import { locales } from "@/middleware";
+import { getDictionary } from "@/dictionaries";
 
 interface RootLayoutProps {
-  children: ReactNode
-  params: {
-    lang: string
-  }
+  children: ReactNode;
+  params: { lang: string };
 }
 
-
 export async function generateStaticParams() {
-  return locales.map((lang) => ({ lang }))
+  return locales.map((lang) => ({ lang }));
 }
 
 export default async function RootLayout({ children, params }: RootLayoutProps) {
-  const dict = await getDictionary(params.lang)
+  const dict = await getDictionary(params.lang);
 
   return (
     <html lang={params.lang}>
@@ -29,5 +24,5 @@ export default async function RootLayout({ children, params }: RootLayoutProps) 
         <div className="flex min-h-screen flex-col">{children}</div>
       </body>
     </html>
-  )
+  );
 }
