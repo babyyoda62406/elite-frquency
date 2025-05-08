@@ -198,8 +198,7 @@ export function createWhatsAppLink(product: Product, lang: string): string {
   const dict = getDictionaryClient(lang)
 
   const message = encodeURIComponent(
-    `${dict.whatsapp.productInterest}: ${product.name} ,
-    }${dict.whatsapp.availability}
+    `${dict.whatsapp.productInterest}: ${product.name}, ${dict.whatsapp.availability}
     \n\`(ID: ${product.id})\`
     `,
   )
