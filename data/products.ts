@@ -589,8 +589,7 @@ export function createWhatsAppLink(product: Product, lang: string): string {
 
   const message = encodeURIComponent(
     `${dict.whatsapp.productInterest}: ${product.name}, ${dict.whatsapp.availability}
-    \n\`(ID: ${product.id})\`\n
-    ${dict.whatsapp.photo}: ${product.images[0]}`,
+    \n\`(ID: ${product.id})\``,
   )
 
   return `https://wa.me/${whatsappNumber}?text=${message}`

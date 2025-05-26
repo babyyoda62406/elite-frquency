@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Image from "next/image"
 import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react"
 
@@ -58,9 +58,8 @@ const ProductImageGallery = ({ images }: { images: string[] }) => {
             {images.map((_, index) => (
               <span
                 key={index}
-                className={`block h-1.5 w-1.5 rounded-full ${
-                  currentImageIndex === index ? "bg-primary" : "bg-primary/30"
-                }`}
+                className={`block h-1.5 w-1.5 rounded-full ${currentImageIndex === index ? "bg-primary" : "bg-primary/30"
+                  }`}
               />
             ))}
           </div>
@@ -113,11 +112,21 @@ const ProductCard = ({ product, lang }: { product: Product; lang: string }) => {
 }
 
 export default function ProductGrid({ lang }: { lang: string }) {
-  const products = getLocalizedProducts(lang)
+  const originalProducts = getLocalizedProducts(lang)
+  const [shuffledProducts, setShuffledProducts] = useState(originalProducts)
+
+  useEffect(() => {
+    const localized = getLocalizedProducts(lang)
+    const shuffled = [...localized].sort(() => Math.random() - 0.5)
+    setShuffledProducts(shuffled)
+  }, [lang])
+
+  // Durante SSR (y primer render en cliente) no se muestran productos
+  if (shuffledProducts.length === 0) return null
 
   return (
     <>
-      {products.map((product) => (
+      {shuffledProducts.map((product) => (
         <ProductCard key={product.id} product={product} lang={lang} />
       ))}
     </>
