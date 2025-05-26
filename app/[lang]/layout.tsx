@@ -22,6 +22,8 @@ export default async function RootLayout({
         <meta charSet="UTF-8" />
         {/* favico */}
         <link rel="icon" href="2025-05-08_06-40.png" />
+        <meta name="google-site-verification" content="OcbEL0psibJMEZkx7TilTM5Ep-Rgvj_V6AiUEfPuX10" />
+        
       </head>
       <body>
         <div className="flex min-h-screen flex-col">{children}</div>

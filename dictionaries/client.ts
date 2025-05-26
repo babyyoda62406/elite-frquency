@@ -35,6 +35,8 @@ export type Dictionary = {
   whatsapp: {
     productInterest: string
     availability: string
+    photo: string
+
   }
 }
 
@@ -74,6 +76,7 @@ const clientDictionaries: Record<string, Dictionary> = {
     whatsapp: {
       productInterest: "Hola, estoy interesado en el producto",
       availability: "¿Está disponible?",
+      photo: "Foto",
     },
   },
   en: {
@@ -110,6 +113,7 @@ const clientDictionaries: Record<string, Dictionary> = {
     whatsapp: {
       productInterest: "Hello, I'm interested in the product",
       availability: "Is it available?",
+      photo: "Photo",
     },
   },
   pt: {
@@ -146,6 +150,7 @@ const clientDictionaries: Record<string, Dictionary> = {
     whatsapp: {
       productInterest: "Olá, estou interessado no produto",
       availability: "Está disponível?",
+      photo: "Foto",
     },
   },
   fr: {
@@ -182,6 +187,7 @@ const clientDictionaries: Record<string, Dictionary> = {
     whatsapp: {
       productInterest: "Bonjour, je suis intéressé par le produit",
       availability: "Est-il disponible?",
+      photo: "Photo",
     },
   },
 }
